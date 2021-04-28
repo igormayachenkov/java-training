@@ -18,7 +18,16 @@ public class Main {
         Person gosha= new Person("Гоша","Иванов",10,eva,alex);
         System.out.println("Мама Алексея: "+alex.getMother().getName());
         System.out.println("Бабушка Гоши: "+gosha.getMother().getMother().getName());
-
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Меня зовут "+gosha.getName());
+        System.out.println("Имя моей мамы: "+gosha.getMother().getName());
+        System.out.println("Имя моего папы: "+gosha.father.getName());
+        System.out.println("У меня две бабушки, бабушка "
+            +gosha.father.getMother().getName()+" и "
+            +gosha.getMother().getMother().getName());
+        System.out.println("У меня два деда, деда "
+            +gosha.father.father.getName()+" и "
+            +gosha.getMother().father.getName());
     }
 }
 
@@ -28,7 +37,7 @@ class Person{
     private int age;
     private int hp = 100;
     private Person mother;
-    private Person father;
+    public Person father;
     public Person(String name, String lastname, int age, Person mother, Person father){
         this.name = name;
         this.lastname = lastname;
