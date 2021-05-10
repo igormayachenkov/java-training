@@ -14,6 +14,8 @@
 
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,22 +27,32 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<String> list = new ArrayList<>();
+        Map<String,String> map = new HashMap<>();
         while (true) {
+            // Input 
+            System.out.println("Введите фамилию");
             String family = scanner.nextLine();
             if (family.isEmpty()) {
                 break;
             }
-
-            list.add(family);
+            System.out.println("Введите город");
+            String city = scanner.nextLine();
+            if (city.isEmpty()) {
+                break;
+            }
+            // Add to the map
+            map.put(city, family);
         }
+        System.out.println("-------------------------------");
 
-        // Read the house number
-        int houseNumber = scanner.nextInt();
 
-        if (0 <= houseNumber && houseNumber < list.size()) {
-            String familyName = list.get(houseNumber);
-            System.out.println(familyName);
+        // Read the city name
+        System.out.println("Введите город чтобы узнать, кто там живет:");
+        String city = scanner.nextLine();
+        // Print family for the city
+        if (map.containsKey(city)) {
+             String familyName = map.get(city);
+             System.out.println(familyName);
         }
     }
 }
